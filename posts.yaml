@@ -1,5 +1,8 @@
 openapi: 3.0.0
 servers:
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/LEOREISLAR/pet-api/1.0.0
   - url: 'https://my-json-server.typicode.com/LReiz/openapi-spike'
 info:
   description: >-
@@ -17,10 +20,10 @@ paths:
   /posts:
     get:
       tags:
-        - pet
+        - posts
       summary: Get posts
       description: ''
-      operationId: addPet
+      operationId: getPosts
       responses:
         '200':
           description: successful operation
@@ -33,10 +36,16 @@ paths:
                 $ref: '#/components/schemas/Post'
         '405':
           description: Invalid input
-      security:
-        - petstore_auth:
-            - 'write:posts'
-            - 'read:posts'
+  /posts/new:
+    post:
+      tags:
+        - posts
+      summary: Add post
+      description: ''
+      operationId: addPost
+      responses:
+        '200':
+          description: successful operation
       requestBody:
         $ref: '#/components/requestBodies/Post'
 components:
@@ -68,15 +77,3 @@ components:
           example: this is the title
       xml:
         name: Post
-    ApiResponse:
-      title: An uploaded response
-      description: Describes the result of uploading an image resource
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        type:
-          type: string
-        message:
-          type: string
