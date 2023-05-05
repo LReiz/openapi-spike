@@ -27,28 +27,28 @@ paths:
           content:
             application/xml:
               schema:
-                $ref: '#/components/schemas/Pet'
+                $ref: '#/components/schemas/Post'
             application/json:
               schema:
-                $ref: '#/components/schemas/Pet'
+                $ref: '#/components/schemas/Post'
         '405':
           description: Invalid input
       security:
         - petstore_auth:
-            - 'write:pets'
-            - 'read:pets'
+            - 'write:posts'
+            - 'read:posts'
       requestBody:
-        $ref: '#/components/requestBodies/Pet'
+        $ref: '#/components/requestBodies/Post'
 components:
   requestBodies:
     Post:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Pet'
+            $ref: '#/components/schemas/Post'
         application/xml:
           schema:
-            $ref: '#/components/schemas/Pet'
+            $ref: '#/components/schemas/Post'
       description: Just a Post
       required: true
   schemas:
