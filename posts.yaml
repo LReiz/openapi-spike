@@ -34,9 +34,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Post'
-        '405':
-          description: Invalid input
-  /posts/new:
     post:
       tags:
         - posts
@@ -44,8 +41,17 @@ paths:
       description: ''
       operationId: addPost
       responses:
-        '200':
+        '201':
           description: successful operation
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Post'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Post'
+        '405':
+          description: Invalid input
       requestBody:
         $ref: '#/components/requestBodies/Post'
 components:
